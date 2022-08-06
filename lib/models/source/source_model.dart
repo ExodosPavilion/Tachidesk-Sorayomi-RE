@@ -1,13 +1,15 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:objectbox/objectbox.dart';
 
 part 'source_model.freezed.dart';
 part 'source_model.g.dart';
 
 @freezed
 class Source with _$Source {
-
+  @Entity(realClass: Source)
   factory Source({
-        String? id,
+    @Id(assignable: true) int? intId,
+    @Unique() String? id,
     String? name,
     String? lang,
     String? iconUrl,

@@ -7,12 +7,14 @@ part of 'chapter_model.dart';
 // **************************************************************************
 
 _$_Chapter _$$_ChapterFromJson(Map<String, dynamic> json) => _$_Chapter(
+      id: json['id'] as int?,
       bookmarked: json['bookmarked'] as bool?,
       chapterCount: json['chapterCount'] as int?,
       chapterNumber: json['chapterNumber'] as int?,
       downloaded: json['downloaded'] as bool?,
       fetchedAt: json['fetchedAt'] as int?,
       index: json['index'] as int?,
+      markPrevRead: json['markPrevRead'] as bool?,
       lastPageRead: json['lastPageRead'] as int?,
       lastReadAt: json['lastReadAt'] as int?,
       mangaId: json['mangaId'] as int?,
@@ -29,12 +31,14 @@ _$_Chapter _$$_ChapterFromJson(Map<String, dynamic> json) => _$_Chapter(
 
 Map<String, dynamic> _$$_ChapterToJson(_$_Chapter instance) =>
     <String, dynamic>{
+      'id': instance.id,
       'bookmarked': instance.bookmarked,
       'chapterCount': instance.chapterCount,
       'chapterNumber': instance.chapterNumber,
       'downloaded': instance.downloaded,
       'fetchedAt': instance.fetchedAt,
       'index': instance.index,
+      'markPrevRead': instance.markPrevRead,
       'lastPageRead': instance.lastPageRead,
       'lastReadAt': instance.lastReadAt,
       'mangaId': instance.mangaId,

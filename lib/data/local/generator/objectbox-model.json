@@ -1,0 +1,394 @@
+{
+  "_note1": "KEEP THIS FILE! Check it into a version control system (VCS) like git.",
+  "_note2": "ObjectBox manages crucial IDs for your object model. See docs for details.",
+  "_note3": "If you have VCS merge conflicts, you must resolve them according to ObjectBox docs.",
+  "entities": [
+    {
+      "id": "1:2090354631594225125",
+      "lastPropertyId": "4:3921391533582899518",
+      "name": "Category",
+      "properties": [
+        {
+          "id": "1:8363760434705411795",
+          "name": "id",
+          "type": 6,
+          "flags": 129
+        },
+        {
+          "id": "2:2567337692776450494",
+          "name": "name",
+          "type": 9
+        },
+        {
+          "id": "3:2739678048181348958",
+          "name": "order",
+          "type": 6
+        },
+        {
+          "id": "4:3921391533582899518",
+          "name": "defaultCategory",
+          "type": 1
+        }
+      ],
+      "relations": []
+    },
+    {
+      "id": "2:7307524957794958371",
+      "lastPropertyId": "17:620406828435301553",
+      "name": "Chapter",
+      "properties": [
+        {
+          "id": "1:2802040182618943909",
+          "name": "id",
+          "type": 6,
+          "flags": 129
+        },
+        {
+          "id": "2:8126604582416613264",
+          "name": "bookmarked",
+          "type": 1
+        },
+        {
+          "id": "3:386574432027639742",
+          "name": "chapterCount",
+          "type": 6
+        },
+        {
+          "id": "4:5843347549335818962",
+          "name": "chapterNumber",
+          "type": 6
+        },
+        {
+          "id": "5:3634576483305611987",
+          "name": "downloaded",
+          "type": 1
+        },
+        {
+          "id": "6:2998370678612386012",
+          "name": "fetchedAt",
+          "type": 6
+        },
+        {
+          "id": "7:7959418752543153642",
+          "name": "index",
+          "type": 6
+        },
+        {
+          "id": "8:3113127710730504916",
+          "name": "markPrevRead",
+          "type": 1
+        },
+        {
+          "id": "9:6458292218479253990",
+          "name": "lastPageRead",
+          "type": 6
+        },
+        {
+          "id": "10:6921072674312490539",
+          "name": "lastReadAt",
+          "type": 6
+        },
+        {
+          "id": "11:676731410156747809",
+          "name": "mangaId",
+          "type": 6
+        },
+        {
+          "id": "12:2604200807635587073",
+          "name": "name",
+          "type": 9
+        },
+        {
+          "id": "13:807770657875482147",
+          "name": "pageCount",
+          "type": 6
+        },
+        {
+          "id": "14:2031387676177408990",
+          "name": "read",
+          "type": 1
+        },
+        {
+          "id": "15:3795291461559483740",
+          "name": "scanlator",
+          "type": 9
+        },
+        {
+          "id": "16:7392193483472929455",
+          "name": "uploadDate",
+          "type": 6
+        },
+        {
+          "id": "17:620406828435301553",
+          "name": "url",
+          "type": 9
+        }
+      ],
+      "relations": []
+    },
+    {
+      "id": "3:4798098575857622302",
+      "lastPropertyId": "12:8795788377641220788",
+      "name": "Extension",
+      "properties": [
+        {
+          "id": "1:6769901752037726937",
+          "name": "id",
+          "type": 6,
+          "flags": 129
+        },
+        {
+          "id": "2:3688541291110974759",
+          "name": "apkName",
+          "type": 9
+        },
+        {
+          "id": "3:8473980306491942193",
+          "name": "iconUrl",
+          "type": 9
+        },
+        {
+          "id": "4:3398055118107026415",
+          "name": "name",
+          "type": 9,
+          "flags": 2048,
+          "indexId": "1:4993312559171509448"
+        },
+        {
+          "id": "5:1455167966460366948",
+          "name": "pkgName",
+          "type": 9,
+          "flags": 2080,
+          "indexId": "2:3614419234424462395"
+        },
+        {
+          "id": "6:989323907394221620",
+          "name": "versionName",
+          "type": 9
+        },
+        {
+          "id": "7:6457783978847420045",
+          "name": "versionCode",
+          "type": 6
+        },
+        {
+          "id": "8:5970383663812628801",
+          "name": "lang",
+          "type": 9
+        },
+        {
+          "id": "9:3074741900962130198",
+          "name": "isNsfw",
+          "type": 1
+        },
+        {
+          "id": "10:5100820328888158987",
+          "name": "installed",
+          "type": 1
+        },
+        {
+          "id": "11:4133961520258564356",
+          "name": "hasUpdate",
+          "type": 1
+        },
+        {
+          "id": "12:8795788377641220788",
+          "name": "obsolete",
+          "type": 1
+        }
+      ],
+      "relations": []
+    },
+    {
+      "id": "4:6666782116779621245",
+      "lastPropertyId": "17:4455286572496529666",
+      "name": "Manga",
+      "properties": [
+        {
+          "id": "1:3057779884994909057",
+          "name": "artist",
+          "type": 9
+        },
+        {
+          "id": "2:2296756496242059769",
+          "name": "author",
+          "type": 9
+        },
+        {
+          "id": "3:205709376540943310",
+          "name": "description",
+          "type": 9
+        },
+        {
+          "id": "4:2135830204827558666",
+          "name": "downloadCount",
+          "type": 6
+        },
+        {
+          "id": "5:8672874531463701987",
+          "name": "freshData",
+          "type": 1
+        },
+        {
+          "id": "6:5952096618106609648",
+          "name": "id",
+          "type": 6,
+          "flags": 129
+        },
+        {
+          "id": "7:3521114205281021025",
+          "name": "inLibrary",
+          "type": 1,
+          "flags": 8,
+          "indexId": "3:1556590793078793804"
+        },
+        {
+          "id": "8:2665622925253260257",
+          "name": "inLibraryAt",
+          "type": 6
+        },
+        {
+          "id": "9:5371565745356851653",
+          "name": "initialized",
+          "type": 1
+        },
+        {
+          "id": "10:6419839100747214589",
+          "name": "realUrl",
+          "type": 9
+        },
+        {
+          "id": "11:9168274279453933692",
+          "name": "sourceId",
+          "type": 9
+        },
+        {
+          "id": "12:7805053381919076087",
+          "name": "status",
+          "type": 9
+        },
+        {
+          "id": "13:3415823536129673988",
+          "name": "thumbnailUrl",
+          "type": 9
+        },
+        {
+          "id": "14:3163696221236622000",
+          "name": "title",
+          "type": 9
+        },
+        {
+          "id": "15:6351601349220207150",
+          "name": "unreadCount",
+          "type": 6
+        },
+        {
+          "id": "16:540447377578391223",
+          "name": "url",
+          "type": 9
+        },
+        {
+          "id": "17:4455286572496529666",
+          "name": "genre",
+          "type": 30
+        }
+      ],
+      "relations": []
+    },
+    {
+      "id": "5:1640842792046881409",
+      "lastPropertyId": "2:5830679700909367282",
+      "name": "MangaChapterRelation",
+      "properties": [
+        {
+          "id": "1:5460212575770570010",
+          "name": "id",
+          "type": 6,
+          "flags": 129
+        },
+        {
+          "id": "2:5830679700909367282",
+          "name": "mangaId",
+          "type": 11,
+          "flags": 520,
+          "indexId": "4:8232055663794495718",
+          "relationTarget": "Manga"
+        }
+      ],
+      "relations": [
+        {
+          "id": "1:1885848043178191775",
+          "name": "chapters",
+          "targetId": "2:7307524957794958371"
+        }
+      ]
+    },
+    {
+      "id": "6:2677398056744556828",
+      "lastPropertyId": "9:8815817972390227025",
+      "name": "Source",
+      "properties": [
+        {
+          "id": "1:1090831279669418015",
+          "name": "intId",
+          "type": 6,
+          "flags": 129
+        },
+        {
+          "id": "2:7535835199043313992",
+          "name": "id",
+          "type": 9,
+          "flags": 2080,
+          "indexId": "5:6602405433480440205"
+        },
+        {
+          "id": "3:5343170028039869280",
+          "name": "name",
+          "type": 9
+        },
+        {
+          "id": "4:6032128572368597203",
+          "name": "lang",
+          "type": 9
+        },
+        {
+          "id": "5:4279063945406374282",
+          "name": "iconUrl",
+          "type": 9
+        },
+        {
+          "id": "6:3033610657893057706",
+          "name": "supportsLatest",
+          "type": 1
+        },
+        {
+          "id": "7:1322957490967427170",
+          "name": "isConfigurable",
+          "type": 1
+        },
+        {
+          "id": "8:4671313769765243261",
+          "name": "isNsfw",
+          "type": 1
+        },
+        {
+          "id": "9:8815817972390227025",
+          "name": "displayName",
+          "type": 9
+        }
+      ],
+      "relations": []
+    }
+  ],
+  "lastEntityId": "6:2677398056744556828",
+  "lastIndexId": "5:6602405433480440205",
+  "lastRelationId": "1:1885848043178191775",
+  "lastSequenceId": "0:0",
+  "modelVersion": 5,
+  "modelVersionParserMinimum": 5,
+  "retiredEntityUids": [],
+  "retiredIndexUids": [],
+  "retiredPropertyUids": [],
+  "retiredRelationUids": [],
+  "version": 1
+}

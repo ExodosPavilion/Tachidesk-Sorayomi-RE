@@ -7,6 +7,7 @@ part of 'source_model.dart';
 // **************************************************************************
 
 _$_Source _$$_SourceFromJson(Map<String, dynamic> json) => _$_Source(
+      intId: json['intId'] as int?,
       id: json['id'] as String?,
       name: json['name'] as String?,
       lang: json['lang'] as String?,
@@ -18,6 +19,7 @@ _$_Source _$$_SourceFromJson(Map<String, dynamic> json) => _$_Source(
     );
 
 Map<String, dynamic> _$$_SourceToJson(_$_Source instance) => <String, dynamic>{
+      'intId': instance.intId,
       'id': instance.id,
       'name': instance.name,
       'lang': instance.lang,

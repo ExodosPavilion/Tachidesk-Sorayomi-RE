@@ -1,0 +1,5 @@
+#include "Generated.xcconfig"
+
+FLUTTER_TARGET=lib/main_stable.dart
+ASSET_PREFIX=stable
+BUNDLE_NAME=Sorayomi

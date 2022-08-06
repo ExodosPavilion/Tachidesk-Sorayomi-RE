@@ -9,4 +9,5 @@ part 'custom_extensions/double_extensions.dart';
 part 'custom_extensions/int_extensions.dart';
 part 'custom_extensions/date_time_extensions.dart';
 part 'custom_extensions/iterable_extensions.dart';
+part 'custom_extensions/map_extensions.dart';
 part 'custom_extensions/string_extensions.dart';

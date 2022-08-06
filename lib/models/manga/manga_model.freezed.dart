@@ -26,7 +26,9 @@ mixin _$Manga {
   int? get downloadCount => throw _privateConstructorUsedError;
   bool? get freshData => throw _privateConstructorUsedError;
   List<String>? get genre => throw _privateConstructorUsedError;
+  @Id(assignable: true)
   int? get id => throw _privateConstructorUsedError;
+  @Index()
   bool? get inLibrary => throw _privateConstructorUsedError;
   int? get inLibraryAt => throw _privateConstructorUsedError;
   bool? get initialized => throw _privateConstructorUsedError;
@@ -56,8 +58,8 @@ abstract class $MangaCopyWith<$Res> {
       int? downloadCount,
       bool? freshData,
       List<String>? genre,
-      int? id,
-      bool? inLibrary,
+      @Id(assignable: true) int? id,
+      @Index() bool? inLibrary,
       int? inLibraryAt,
       bool? initialized,
       String? realUrl,
@@ -207,8 +209,8 @@ abstract class _$$_MangaCopyWith<$Res> implements $MangaCopyWith<$Res> {
       int? downloadCount,
       bool? freshData,
       List<String>? genre,
-      int? id,
-      bool? inLibrary,
+      @Id(assignable: true) int? id,
+      @Index() bool? inLibrary,
       int? inLibraryAt,
       bool? initialized,
       String? realUrl,
@@ -339,6 +341,7 @@ class __$$_MangaCopyWithImpl<$Res> extends _$MangaCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
+@Entity(realClass: Manga)
 class _$_Manga implements _Manga {
   _$_Manga(
       {this.artist,
@@ -347,8 +350,8 @@ class _$_Manga implements _Manga {
       this.downloadCount,
       this.freshData,
       final List<String>? genre,
-      this.id,
-      this.inLibrary,
+      @Id(assignable: true) this.id,
+      @Index() this.inLibrary,
       this.inLibraryAt,
       this.initialized,
       this.realUrl,
@@ -386,8 +389,10 @@ class _$_Manga implements _Manga {
   }
 
   @override
+  @Id(assignable: true)
   final int? id;
   @override
+  @Index()
   final bool? inLibrary;
   @override
   final int? inLibraryAt;
@@ -501,8 +506,8 @@ abstract class _Manga implements Manga {
       final int? downloadCount,
       final bool? freshData,
       final List<String>? genre,
-      final int? id,
-      final bool? inLibrary,
+      @Id(assignable: true) final int? id,
+      @Index() final bool? inLibrary,
       final int? inLibraryAt,
       final bool? initialized,
       final String? realUrl,
@@ -530,8 +535,10 @@ abstract class _Manga implements Manga {
   @override
   List<String>? get genre;
   @override
+  @Id(assignable: true)
   int? get id;
   @override
+  @Index()
   bool? get inLibrary;
   @override
   int? get inLibraryAt;

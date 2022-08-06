@@ -1,14 +1,13 @@
-
 import 'package:dio/dio.dart';
-import 'package:tachidesk_sorayomi/data/local/hive_helper.dart';
 
+import '../../data/local/objectbox.dart';
 import '../../data/network/constants/endpoints.dart';
 
 abstract class NetworkModule {
   /// A singleton dio provider.
   ///
   /// Calling it multiple times will return the same instance.
-  static Dio provideDio(HiveHelper hiveHelper) {
+  static Dio provideDio(ObjectBox hiveHelper) {
     final dio = Dio();
 
     dio
