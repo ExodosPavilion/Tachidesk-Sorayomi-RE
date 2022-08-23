@@ -4,10 +4,14 @@
         "flavorizr",
         "fluttertoast",
         "kindlish",
+        "mangas",
         "mobx",
+        "objectbox",
+        "proto",
         "scanlator",
         "sorayomi",
         "suwayomi",
+        "Tachdesk",
         "tachidesk",
         "webtoon"
     ]

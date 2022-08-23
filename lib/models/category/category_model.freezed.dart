@@ -20,9 +20,11 @@ Category _$CategoryFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Category {
+  @Id(assignable: true)
   int? get id => throw _privateConstructorUsedError;
   String? get name => throw _privateConstructorUsedError;
   int? get order => throw _privateConstructorUsedError;
+  @JsonKey(name: "default")
   bool? get defaultCategory => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -35,7 +37,11 @@ mixin _$Category {
 abstract class $CategoryCopyWith<$Res> {
   factory $CategoryCopyWith(Category value, $Res Function(Category) then) =
       _$CategoryCopyWithImpl<$Res>;
-  $Res call({int? id, String? name, int? order, bool? defaultCategory});
+  $Res call(
+      {@Id(assignable: true) int? id,
+      String? name,
+      int? order,
+      @JsonKey(name: "default") bool? defaultCategory});
 }
 
 /// @nodoc
@@ -80,7 +86,11 @@ abstract class _$$_CategoryCopyWith<$Res> implements $CategoryCopyWith<$Res> {
           _$_Category value, $Res Function(_$_Category) then) =
       __$$_CategoryCopyWithImpl<$Res>;
   @override
-  $Res call({int? id, String? name, int? order, bool? defaultCategory});
+  $Res call(
+      {@Id(assignable: true) int? id,
+      String? name,
+      int? order,
+      @JsonKey(name: "default") bool? defaultCategory});
 }
 
 /// @nodoc
@@ -123,19 +133,26 @@ class __$$_CategoryCopyWithImpl<$Res> extends _$CategoryCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
+@Entity(realClass: Category)
 class _$_Category implements _Category {
-  _$_Category({this.id, this.name, this.order, this.defaultCategory});
+  _$_Category(
+      {@Id(assignable: true) this.id,
+      this.name,
+      this.order,
+      @JsonKey(name: "default") this.defaultCategory});
 
   factory _$_Category.fromJson(Map<String, dynamic> json) =>
       _$$_CategoryFromJson(json);
 
   @override
+  @Id(assignable: true)
   final int? id;
   @override
   final String? name;
   @override
   final int? order;
   @override
+  @JsonKey(name: "default")
   final bool? defaultCategory;
 
   @override
@@ -179,20 +196,22 @@ class _$_Category implements _Category {
 
 abstract class _Category implements Category {
   factory _Category(
-      {final int? id,
+      {@Id(assignable: true) final int? id,
       final String? name,
       final int? order,
-      final bool? defaultCategory}) = _$_Category;
+      @JsonKey(name: "default") final bool? defaultCategory}) = _$_Category;
 
   factory _Category.fromJson(Map<String, dynamic> json) = _$_Category.fromJson;
 
   @override
+  @Id(assignable: true)
   int? get id;
   @override
   String? get name;
   @override
   int? get order;
   @override
+  @JsonKey(name: "default")
   bool? get defaultCategory;
   @override
   @JsonKey(ignore: true)

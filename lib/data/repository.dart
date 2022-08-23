@@ -1,5 +1,8 @@
-import 'package:tachidesk_sorayomi/data/local/hive_helper.dart';
 
+
+import '../models/about/about_model.dart';
+import 'local/objectbox.dart';
+import 'package:pub_semver/pub_semver.dart' ;
 import 'network/apis/base_api.dart';
 
 class Repository {
@@ -10,8 +13,11 @@ class Repository {
   final BaseApi _baseApi;
 
   // shared pref object
-  final HiveHelper _hiveHelper;
+  final ObjectBox _boxHelper;
 
   // constructor
-  Repository(this._hiveHelper, this._baseApi);
+  Repository(this._boxHelper, this._baseApi);
+
+  Future<About?> getAboutServer() => _baseApi.settingsApi.getAbout();
+  Future<Version?> checkForUpdate() => _baseApi.settingsApi.checkUpdate();
 }

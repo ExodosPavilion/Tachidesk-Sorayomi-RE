@@ -20,6 +20,9 @@ Source _$SourceFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Source {
+  @Id(assignable: true)
+  int? get intId => throw _privateConstructorUsedError;
+  @Unique()
   String? get id => throw _privateConstructorUsedError;
   String? get name => throw _privateConstructorUsedError;
   String? get lang => throw _privateConstructorUsedError;
@@ -39,7 +42,8 @@ abstract class $SourceCopyWith<$Res> {
   factory $SourceCopyWith(Source value, $Res Function(Source) then) =
       _$SourceCopyWithImpl<$Res>;
   $Res call(
-      {String? id,
+      {@Id(assignable: true) int? intId,
+      @Unique() String? id,
       String? name,
       String? lang,
       String? iconUrl,
@@ -59,6 +63,7 @@ class _$SourceCopyWithImpl<$Res> implements $SourceCopyWith<$Res> {
 
   @override
   $Res call({
+    Object? intId = freezed,
     Object? id = freezed,
     Object? name = freezed,
     Object? lang = freezed,
@@ -69,6 +74,10 @@ class _$SourceCopyWithImpl<$Res> implements $SourceCopyWith<$Res> {
     Object? displayName = freezed,
   }) {
     return _then(_value.copyWith(
+      intId: intId == freezed
+          ? _value.intId
+          : intId // ignore: cast_nullable_to_non_nullable
+              as int?,
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -111,7 +120,8 @@ abstract class _$$_SourceCopyWith<$Res> implements $SourceCopyWith<$Res> {
       __$$_SourceCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String? id,
+      {@Id(assignable: true) int? intId,
+      @Unique() String? id,
       String? name,
       String? lang,
       String? iconUrl,
@@ -132,6 +142,7 @@ class __$$_SourceCopyWithImpl<$Res> extends _$SourceCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? intId = freezed,
     Object? id = freezed,
     Object? name = freezed,
     Object? lang = freezed,
@@ -142,6 +153,10 @@ class __$$_SourceCopyWithImpl<$Res> extends _$SourceCopyWithImpl<$Res>
     Object? displayName = freezed,
   }) {
     return _then(_$_Source(
+      intId: intId == freezed
+          ? _value.intId
+          : intId // ignore: cast_nullable_to_non_nullable
+              as int?,
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -180,9 +195,11 @@ class __$$_SourceCopyWithImpl<$Res> extends _$SourceCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
+@Entity(realClass: Source)
 class _$_Source implements _Source {
   _$_Source(
-      {this.id,
+      {@Id(assignable: true) this.intId,
+      @Unique() this.id,
       this.name,
       this.lang,
       this.iconUrl,
@@ -195,6 +212,10 @@ class _$_Source implements _Source {
       _$$_SourceFromJson(json);
 
   @override
+  @Id(assignable: true)
+  final int? intId;
+  @override
+  @Unique()
   final String? id;
   @override
   final String? name;
@@ -213,7 +234,7 @@ class _$_Source implements _Source {
 
   @override
   String toString() {
-    return 'Source(id: $id, name: $name, lang: $lang, iconUrl: $iconUrl, supportsLatest: $supportsLatest, isConfigurable: $isConfigurable, isNsfw: $isNsfw, displayName: $displayName)';
+    return 'Source(intId: $intId, id: $id, name: $name, lang: $lang, iconUrl: $iconUrl, supportsLatest: $supportsLatest, isConfigurable: $isConfigurable, isNsfw: $isNsfw, displayName: $displayName)';
   }
 
   @override
@@ -221,6 +242,7 @@ class _$_Source implements _Source {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Source &&
+            const DeepCollectionEquality().equals(other.intId, intId) &&
             const DeepCollectionEquality().equals(other.id, id) &&
             const DeepCollectionEquality().equals(other.name, name) &&
             const DeepCollectionEquality().equals(other.lang, lang) &&
@@ -238,6 +260,7 @@ class _$_Source implements _Source {
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      const DeepCollectionEquality().hash(intId),
       const DeepCollectionEquality().hash(id),
       const DeepCollectionEquality().hash(name),
       const DeepCollectionEquality().hash(lang),
@@ -262,7 +285,8 @@ class _$_Source implements _Source {
 
 abstract class _Source implements Source {
   factory _Source(
-      {final String? id,
+      {@Id(assignable: true) final int? intId,
+      @Unique() final String? id,
       final String? name,
       final String? lang,
       final String? iconUrl,
@@ -274,6 +298,10 @@ abstract class _Source implements Source {
   factory _Source.fromJson(Map<String, dynamic> json) = _$_Source.fromJson;
 
   @override
+  @Id(assignable: true)
+  int? get intId;
+  @override
+  @Unique()
   String? get id;
   @override
   String? get name;

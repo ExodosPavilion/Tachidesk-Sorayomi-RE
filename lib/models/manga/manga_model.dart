@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:objectbox/objectbox.dart';
 
 import '../source/source_model.dart';
 
@@ -7,7 +8,7 @@ part 'manga_model.g.dart';
 
 @freezed
 class Manga with _$Manga {
-
+  @Entity(realClass: Manga)
   factory Manga({
     String? artist,
     String? author,
@@ -15,8 +16,8 @@ class Manga with _$Manga {
     int? downloadCount,
     bool? freshData,
     List<String>? genre,
-    int? id,
-    bool? inLibrary,
+    @Id(assignable: true) int? id,
+    @Index() bool? inLibrary,
     int? inLibraryAt,
     bool? initialized,
     String? realUrl,

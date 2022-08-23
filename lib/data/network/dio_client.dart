@@ -3,10 +3,52 @@ import 'dart:io';
 import 'package:flutter/foundation.dart';
 
 import 'package:dio/dio.dart';
-import 'package:tachidesk_sorayomi/utils/misc/show_toast.dart';
 
 import '../../utils/extensions/extensions.dart';
+import '../../utils/misc/show_toast.dart';
 import '../../utils/network/dio_error_util.dart';
+
+typedef ResponseDecoderCallBack<DecoderType> = DecoderType Function(dynamic);
+
+enum ComputeParameters {
+  responseData,
+  decoder,
+}
+
+ReturnType? responseComputeDecoder<ReturnType, DecoderType>(
+    Map<String, dynamic> map) {
+  return (map[ComputeParameters.decoder.name]
+          as ResponseDecoderCallBack<DecoderType>)(
+      map[ComputeParameters.responseData.name]) as ReturnType?;
+}
+
+Future<ReturnType?> responseDecoder<ReturnType, DecoderType>({
+  required dynamic responseData,
+  required ResponseDecoderCallBack<DecoderType> decoder,
+}) async {
+  if (responseData is List) {
+    final result = [];
+    for (var i in responseData) {
+      result.add(await compute<Map<String, dynamic>, ReturnType?>(
+        responseComputeDecoder<ReturnType, DecoderType>,
+        {
+          ComputeParameters.responseData.name: i,
+          ComputeParameters.decoder.name: decoder,
+        },
+      ));
+    }
+    return result as ReturnType;
+  } else if (responseData is Map<String, dynamic>) {
+    return await compute<Map<String, dynamic>, ReturnType?>(
+      responseComputeDecoder<ReturnType, DecoderType>,
+      {
+        ComputeParameters.responseData.name: responseData,
+        ComputeParameters.decoder.name: decoder,
+      },
+    );
+  }
+  return responseData as ReturnType?;
+}
 
 class DioClient {
   // dio instance
@@ -20,9 +62,9 @@ class DioClient {
   /// - [DecoderType] is the return Type of decoder
   ///
   /// for example:
-  /// 1. Return type [ReturnType] of [get] is List<User> then return type of
+  /// 1. if Return type [ReturnType] of [get] is List<User> then return type of
   /// decoder [DecoderType] is User.
-  /// 2. Return type [ReturnType] of [get] is User then return type of decoder [DecoderType] is
+  /// 2. if Return type [ReturnType] of [get] is User then return type of decoder [DecoderType] is
   /// User
   /// [decoder] will only work if the [Response.data] is List<Map> or Map
   Future<ReturnType?> get<ReturnType, DecoderType>(
@@ -42,14 +84,14 @@ class DioClient {
         onReceiveProgress: onReceiveProgress,
       );
       final responseData = response.data;
+      ReturnType? result;
       if (decoder != null) {
-        if (responseData is List) {
-          return responseData.map(decoder).toList() as ReturnType;
-        } else if (responseData is Map<String, dynamic>) {
-          return decoder(responseData) as ReturnType;
-        }
+        result = await responseDecoder<ReturnType, DecoderType>(
+          responseData: responseData,
+          decoder: decoder,
+        );
       }
-      return responseData as ReturnType;
+      return result ?? responseData as ReturnType?;
     } on DioError catch (e) {
       DioErrorUtil.handleError(e);
       if (kDebugMode) rethrow;
@@ -64,9 +106,9 @@ class DioClient {
   /// - [DecoderType] is the return Type of decoder
   ///
   /// for example:
-  /// 1. Return type [ReturnType] of [post] is List<User> then return type of
+  /// 1. if Return type [ReturnType] of [post] is List<User> then return type of
   /// decoder [DecoderType] is User.
-  /// 2. Return type [ReturnType] of [post] is User then return type of decoder [DecoderType] is
+  /// 2. if Return type [ReturnType] of [post] is User then return type of decoder [DecoderType] is
   /// User
   /// [decoder] will only work if the [ApiResponse.data] is List<Map> or Map
   Future<ReturnType?> post<ReturnType, DecoderType>(
@@ -90,14 +132,14 @@ class DioClient {
         onReceiveProgress: onReceiveProgress,
       );
       final responseData = response.data;
+      ReturnType? result;
       if (decoder != null) {
-        if (responseData is List) {
-          return responseData.map(decoder).toList() as ReturnType;
-        } else if (responseData is Map<String, dynamic>) {
-          return decoder(responseData) as ReturnType;
-        }
+        result = await responseDecoder<ReturnType, DecoderType>(
+          responseData: responseData,
+          decoder: decoder,
+        );
       }
-      return responseData as ReturnType;
+      return result ?? responseData as ReturnType?;
     } on DioError catch (e) {
       DioErrorUtil.handleError(e);
       if (kDebugMode) rethrow;
@@ -112,9 +154,9 @@ class DioClient {
   /// - [DecoderType] is the return Type of decoder
   ///
   /// for example:
-  /// 1. Return type [ReturnType] of [post] is List<User> then return type of
+  /// 1.if  Return type [ReturnType] of [post] is List<User> then return type of
   /// decoder [DecoderType] is User.
-  /// 2. Return type [ReturnType] of [post] is User then return type of decoder [DecoderType] is
+  /// 2. if Return type [ReturnType] of [post] is User then return type of decoder [DecoderType] is
   /// User
   /// [decoder] will only work if the [ApiResponse.data] is List<Map> or Map
   Future<ReturnType?> patch<ReturnType, DecoderType>(
@@ -138,14 +180,14 @@ class DioClient {
         onReceiveProgress: onReceiveProgress,
       );
       final responseData = response.data;
+      ReturnType? result;
       if (decoder != null) {
-        if (responseData is List) {
-          return responseData.map(decoder).toList() as ReturnType;
-        } else if (responseData is Map<String, dynamic>) {
-          return decoder(responseData) as ReturnType;
-        }
+        result = await responseDecoder<ReturnType, DecoderType>(
+          responseData: responseData,
+          decoder: decoder,
+        );
       }
-      return responseData as ReturnType;
+      return result ?? responseData as ReturnType?;
     } on DioError catch (e) {
       DioErrorUtil.handleError(e);
       if (kDebugMode) rethrow;
@@ -162,9 +204,9 @@ class DioClient {
   /// - [DecoderType] is the return Type of decoder
   ///
   /// for example:
-  /// 1. Return type [ReturnType] of [post] is List<User> then return type of
+  /// 1. if Return type [ReturnType] of [post] is List<User> then return type of
   /// decoder [DecoderType] is User.
-  /// 2. Return type [ReturnType] of [post] is User then return type of decoder [DecoderType] is
+  /// 2. if Return type [ReturnType] of [post] is User then return type of decoder [DecoderType] is
   /// User
   /// [decoder] will only work if the [ApiResponse.data] is List<Map> or Map
   Future<ReturnType?> put<ReturnType, DecoderType>(
@@ -188,14 +230,14 @@ class DioClient {
         onReceiveProgress: onReceiveProgress,
       );
       final responseData = response.data;
+      ReturnType? result;
       if (decoder != null) {
-        if (responseData is List) {
-          return responseData.map(decoder).toList() as ReturnType;
-        } else if (responseData is Map<String, dynamic>) {
-          return decoder(responseData) as ReturnType;
-        }
+        result = await responseDecoder<ReturnType, DecoderType>(
+          responseData: responseData,
+          decoder: decoder,
+        );
       }
-      return responseData as ReturnType;
+      return result ?? responseData as ReturnType?;
     } on DioError catch (e) {
       DioErrorUtil.handleError(e);
 
@@ -213,9 +255,9 @@ class DioClient {
   /// - [DecoderType] is the return Type of decoder
   ///
   /// for example:
-  /// 1. Return type [ReturnType] of [post] is List<User> then return type of
+  /// 1. if Return type [ReturnType] of [post] is List<User> then return type of
   /// decoder [DecoderType] is User.
-  /// 2. Return type [ReturnType] of [post] is User then return type of decoder [DecoderType] is
+  /// 2. if Return type [ReturnType] of [post] is User then return type of decoder [DecoderType] is
   /// User
   /// [decoder] will only work if the [ApiResponse.data] is List<Map> or Map
   Future<ReturnType?> delete<ReturnType, DecoderType>(
@@ -237,14 +279,14 @@ class DioClient {
         cancelToken: cancelToken,
       );
       final responseData = response.data;
+      ReturnType? result;
       if (decoder != null) {
-        if (responseData is List) {
-          return responseData.map(decoder).toList() as ReturnType;
-        } else if (responseData is Map<String, dynamic>) {
-          return decoder(responseData) as ReturnType;
-        }
+        result = await responseDecoder<ReturnType, DecoderType>(
+          responseData: responseData,
+          decoder: decoder,
+        );
       }
-      return responseData as ReturnType;
+      return result ?? responseData as ReturnType?;
     } on DioError catch (e) {
       DioErrorUtil.handleError(e);
 

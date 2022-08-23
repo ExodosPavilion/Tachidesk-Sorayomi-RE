@@ -10,7 +10,7 @@ _$_Category _$$_CategoryFromJson(Map<String, dynamic> json) => _$_Category(
       id: json['id'] as int?,
       name: json['name'] as String?,
       order: json['order'] as int?,
-      defaultCategory: json['defaultCategory'] as bool?,
+      defaultCategory: json['default'] as bool?,
     );
 
 Map<String, dynamic> _$$_CategoryToJson(_$_Category instance) =>
@@ -18,5 +18,5 @@ Map<String, dynamic> _$$_CategoryToJson(_$_Category instance) =>
       'id': instance.id,
       'name': instance.name,
       'order': instance.order,
-      'defaultCategory': instance.defaultCategory,
+      'default': instance.defaultCategory,
     };

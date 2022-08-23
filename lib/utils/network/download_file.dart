@@ -8,7 +8,6 @@ import 'package:path_provider/path_provider.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-
 class DownloadFile {
   DownloadFile._();
 
@@ -72,3 +71,32 @@ class DownloadFile {
     }
   }
 }
+// final ReceivePort _port = ReceivePort();
+// @override
+// void initState() {
+//   super.initState();
+
+//   // Flutter Download
+//   IsolateNameServer.registerPortWithName(
+//       _port.sendPort, 'downloader_send_port');
+//   _port.listen((dynamic data) {
+//     // String id = data[0];
+//     // DownloadTaskStatus status = data[1];
+//     // int progress = data[2];
+//   });
+
+//   FlutterDownloader.registerCallback(downloadCallback);
+// }
+
+// static void downloadCallback(
+//     String id, DownloadTaskStatus status, int progress) {
+//   final SendPort send =
+//       IsolateNameServer.lookupPortByName('downloader_send_port')!;
+//   send.send([id, status, progress]);
+// }
+
+// @override
+// void dispose() {
+//   IsolateNameServer.removePortNameMapping('downloader_send_port');
+//   super.dispose();
+// }

@@ -7,6 +7,7 @@ part of 'extension_model.dart';
 // **************************************************************************
 
 _$_Extension _$$_ExtensionFromJson(Map<String, dynamic> json) => _$_Extension(
+      id: json['id'] as int?,
       apkName: json['apkName'] as String?,
       iconUrl: json['iconUrl'] as String?,
       name: json['name'] as String?,
@@ -22,6 +23,7 @@ _$_Extension _$$_ExtensionFromJson(Map<String, dynamic> json) => _$_Extension(
 
 Map<String, dynamic> _$$_ExtensionToJson(_$_Extension instance) =>
     <String, dynamic>{
+      'id': instance.id,
       'apkName': instance.apkName,
       'iconUrl': instance.iconUrl,
       'name': instance.name,

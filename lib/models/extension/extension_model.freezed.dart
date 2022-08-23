@@ -20,9 +20,13 @@ Extension _$ExtensionFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Extension {
+  @Id(assignable: true)
+  int? get id => throw _privateConstructorUsedError;
   String? get apkName => throw _privateConstructorUsedError;
   String? get iconUrl => throw _privateConstructorUsedError;
+  @Index()
   String? get name => throw _privateConstructorUsedError;
+  @Unique()
   String? get pkgName => throw _privateConstructorUsedError;
   String? get versionName => throw _privateConstructorUsedError;
   int? get versionCode => throw _privateConstructorUsedError;
@@ -43,10 +47,11 @@ abstract class $ExtensionCopyWith<$Res> {
   factory $ExtensionCopyWith(Extension value, $Res Function(Extension) then) =
       _$ExtensionCopyWithImpl<$Res>;
   $Res call(
-      {String? apkName,
+      {@Id(assignable: true) int? id,
+      String? apkName,
       String? iconUrl,
-      String? name,
-      String? pkgName,
+      @Index() String? name,
+      @Unique() String? pkgName,
       String? versionName,
       int? versionCode,
       String? lang,
@@ -66,6 +71,7 @@ class _$ExtensionCopyWithImpl<$Res> implements $ExtensionCopyWith<$Res> {
 
   @override
   $Res call({
+    Object? id = freezed,
     Object? apkName = freezed,
     Object? iconUrl = freezed,
     Object? name = freezed,
@@ -79,6 +85,10 @@ class _$ExtensionCopyWithImpl<$Res> implements $ExtensionCopyWith<$Res> {
     Object? obsolete = freezed,
   }) {
     return _then(_value.copyWith(
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int?,
       apkName: apkName == freezed
           ? _value.apkName
           : apkName // ignore: cast_nullable_to_non_nullable
@@ -134,10 +144,11 @@ abstract class _$$_ExtensionCopyWith<$Res> implements $ExtensionCopyWith<$Res> {
       __$$_ExtensionCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String? apkName,
+      {@Id(assignable: true) int? id,
+      String? apkName,
       String? iconUrl,
-      String? name,
-      String? pkgName,
+      @Index() String? name,
+      @Unique() String? pkgName,
       String? versionName,
       int? versionCode,
       String? lang,
@@ -159,6 +170,7 @@ class __$$_ExtensionCopyWithImpl<$Res> extends _$ExtensionCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? id = freezed,
     Object? apkName = freezed,
     Object? iconUrl = freezed,
     Object? name = freezed,
@@ -172,6 +184,10 @@ class __$$_ExtensionCopyWithImpl<$Res> extends _$ExtensionCopyWithImpl<$Res>
     Object? obsolete = freezed,
   }) {
     return _then(_$_Extension(
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int?,
       apkName: apkName == freezed
           ? _value.apkName
           : apkName // ignore: cast_nullable_to_non_nullable
@@ -222,12 +238,14 @@ class __$$_ExtensionCopyWithImpl<$Res> extends _$ExtensionCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
+@Entity(realClass: Extension)
 class _$_Extension implements _Extension {
   _$_Extension(
-      {this.apkName,
+      {@Id(assignable: true) this.id,
+      this.apkName,
       this.iconUrl,
-      this.name,
-      this.pkgName,
+      @Index() this.name,
+      @Unique() this.pkgName,
       this.versionName,
       this.versionCode,
       this.lang,
@@ -240,12 +258,17 @@ class _$_Extension implements _Extension {
       _$$_ExtensionFromJson(json);
 
   @override
+  @Id(assignable: true)
+  final int? id;
+  @override
   final String? apkName;
   @override
   final String? iconUrl;
   @override
+  @Index()
   final String? name;
   @override
+  @Unique()
   final String? pkgName;
   @override
   final String? versionName;
@@ -264,7 +287,7 @@ class _$_Extension implements _Extension {
 
   @override
   String toString() {
-    return 'Extension(apkName: $apkName, iconUrl: $iconUrl, name: $name, pkgName: $pkgName, versionName: $versionName, versionCode: $versionCode, lang: $lang, isNsfw: $isNsfw, installed: $installed, hasUpdate: $hasUpdate, obsolete: $obsolete)';
+    return 'Extension(id: $id, apkName: $apkName, iconUrl: $iconUrl, name: $name, pkgName: $pkgName, versionName: $versionName, versionCode: $versionCode, lang: $lang, isNsfw: $isNsfw, installed: $installed, hasUpdate: $hasUpdate, obsolete: $obsolete)';
   }
 
   @override
@@ -272,6 +295,7 @@ class _$_Extension implements _Extension {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Extension &&
+            const DeepCollectionEquality().equals(other.id, id) &&
             const DeepCollectionEquality().equals(other.apkName, apkName) &&
             const DeepCollectionEquality().equals(other.iconUrl, iconUrl) &&
             const DeepCollectionEquality().equals(other.name, name) &&
@@ -291,6 +315,7 @@ class _$_Extension implements _Extension {
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      const DeepCollectionEquality().hash(id),
       const DeepCollectionEquality().hash(apkName),
       const DeepCollectionEquality().hash(iconUrl),
       const DeepCollectionEquality().hash(name),
@@ -318,10 +343,11 @@ class _$_Extension implements _Extension {
 
 abstract class _Extension implements Extension {
   factory _Extension(
-      {final String? apkName,
+      {@Id(assignable: true) final int? id,
+      final String? apkName,
       final String? iconUrl,
-      final String? name,
-      final String? pkgName,
+      @Index() final String? name,
+      @Unique() final String? pkgName,
       final String? versionName,
       final int? versionCode,
       final String? lang,
@@ -334,12 +360,17 @@ abstract class _Extension implements Extension {
       _$_Extension.fromJson;
 
   @override
+  @Id(assignable: true)
+  int? get id;
+  @override
   String? get apkName;
   @override
   String? get iconUrl;
   @override
+  @Index()
   String? get name;
   @override
+  @Unique()
   String? get pkgName;
   @override
   String? get versionName;

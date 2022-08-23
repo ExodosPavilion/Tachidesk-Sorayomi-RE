@@ -20,12 +20,15 @@ Chapter _$ChapterFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Chapter {
+  @Id(assignable: true)
+  int? get id => throw _privateConstructorUsedError;
   bool? get bookmarked => throw _privateConstructorUsedError;
   int? get chapterCount => throw _privateConstructorUsedError;
   int? get chapterNumber => throw _privateConstructorUsedError;
   bool? get downloaded => throw _privateConstructorUsedError;
   int? get fetchedAt => throw _privateConstructorUsedError;
   int? get index => throw _privateConstructorUsedError;
+  bool? get markPrevRead => throw _privateConstructorUsedError;
   int? get lastPageRead => throw _privateConstructorUsedError;
   int? get lastReadAt => throw _privateConstructorUsedError;
   int? get mangaId => throw _privateConstructorUsedError;
@@ -47,12 +50,14 @@ abstract class $ChapterCopyWith<$Res> {
   factory $ChapterCopyWith(Chapter value, $Res Function(Chapter) then) =
       _$ChapterCopyWithImpl<$Res>;
   $Res call(
-      {bool? bookmarked,
+      {@Id(assignable: true) int? id,
+      bool? bookmarked,
       int? chapterCount,
       int? chapterNumber,
       bool? downloaded,
       int? fetchedAt,
       int? index,
+      bool? markPrevRead,
       int? lastPageRead,
       int? lastReadAt,
       int? mangaId,
@@ -75,12 +80,14 @@ class _$ChapterCopyWithImpl<$Res> implements $ChapterCopyWith<$Res> {
 
   @override
   $Res call({
+    Object? id = freezed,
     Object? bookmarked = freezed,
     Object? chapterCount = freezed,
     Object? chapterNumber = freezed,
     Object? downloaded = freezed,
     Object? fetchedAt = freezed,
     Object? index = freezed,
+    Object? markPrevRead = freezed,
     Object? lastPageRead = freezed,
     Object? lastReadAt = freezed,
     Object? mangaId = freezed,
@@ -93,6 +100,10 @@ class _$ChapterCopyWithImpl<$Res> implements $ChapterCopyWith<$Res> {
     Object? meta = freezed,
   }) {
     return _then(_value.copyWith(
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int?,
       bookmarked: bookmarked == freezed
           ? _value.bookmarked
           : bookmarked // ignore: cast_nullable_to_non_nullable
@@ -117,6 +128,10 @@ class _$ChapterCopyWithImpl<$Res> implements $ChapterCopyWith<$Res> {
           ? _value.index
           : index // ignore: cast_nullable_to_non_nullable
               as int?,
+      markPrevRead: markPrevRead == freezed
+          ? _value.markPrevRead
+          : markPrevRead // ignore: cast_nullable_to_non_nullable
+              as bool?,
       lastPageRead: lastPageRead == freezed
           ? _value.lastPageRead
           : lastPageRead // ignore: cast_nullable_to_non_nullable
@@ -168,12 +183,14 @@ abstract class _$$_ChapterCopyWith<$Res> implements $ChapterCopyWith<$Res> {
       __$$_ChapterCopyWithImpl<$Res>;
   @override
   $Res call(
-      {bool? bookmarked,
+      {@Id(assignable: true) int? id,
+      bool? bookmarked,
       int? chapterCount,
       int? chapterNumber,
       bool? downloaded,
       int? fetchedAt,
       int? index,
+      bool? markPrevRead,
       int? lastPageRead,
       int? lastReadAt,
       int? mangaId,
@@ -197,12 +214,14 @@ class __$$_ChapterCopyWithImpl<$Res> extends _$ChapterCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? id = freezed,
     Object? bookmarked = freezed,
     Object? chapterCount = freezed,
     Object? chapterNumber = freezed,
     Object? downloaded = freezed,
     Object? fetchedAt = freezed,
     Object? index = freezed,
+    Object? markPrevRead = freezed,
     Object? lastPageRead = freezed,
     Object? lastReadAt = freezed,
     Object? mangaId = freezed,
@@ -215,6 +234,10 @@ class __$$_ChapterCopyWithImpl<$Res> extends _$ChapterCopyWithImpl<$Res>
     Object? meta = freezed,
   }) {
     return _then(_$_Chapter(
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int?,
       bookmarked: bookmarked == freezed
           ? _value.bookmarked
           : bookmarked // ignore: cast_nullable_to_non_nullable
@@ -239,6 +262,10 @@ class __$$_ChapterCopyWithImpl<$Res> extends _$ChapterCopyWithImpl<$Res>
           ? _value.index
           : index // ignore: cast_nullable_to_non_nullable
               as int?,
+      markPrevRead: markPrevRead == freezed
+          ? _value.markPrevRead
+          : markPrevRead // ignore: cast_nullable_to_non_nullable
+              as bool?,
       lastPageRead: lastPageRead == freezed
           ? _value.lastPageRead
           : lastPageRead // ignore: cast_nullable_to_non_nullable
@@ -285,14 +312,17 @@ class __$$_ChapterCopyWithImpl<$Res> extends _$ChapterCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
+@Entity(realClass: Chapter)
 class _$_Chapter implements _Chapter {
   _$_Chapter(
-      {this.bookmarked,
+      {@Id(assignable: true) this.id,
+      this.bookmarked,
       this.chapterCount,
       this.chapterNumber,
       this.downloaded,
       this.fetchedAt,
       this.index,
+      this.markPrevRead,
       this.lastPageRead,
       this.lastReadAt,
       this.mangaId,
@@ -309,6 +339,9 @@ class _$_Chapter implements _Chapter {
       _$$_ChapterFromJson(json);
 
   @override
+  @Id(assignable: true)
+  final int? id;
+  @override
   final bool? bookmarked;
   @override
   final int? chapterCount;
@@ -320,6 +353,8 @@ class _$_Chapter implements _Chapter {
   final int? fetchedAt;
   @override
   final int? index;
+  @override
+  final bool? markPrevRead;
   @override
   final int? lastPageRead;
   @override
@@ -349,7 +384,7 @@ class _$_Chapter implements _Chapter {
 
   @override
   String toString() {
-    return 'Chapter(bookmarked: $bookmarked, chapterCount: $chapterCount, chapterNumber: $chapterNumber, downloaded: $downloaded, fetchedAt: $fetchedAt, index: $index, lastPageRead: $lastPageRead, lastReadAt: $lastReadAt, mangaId: $mangaId, name: $name, pageCount: $pageCount, read: $read, scanlator: $scanlator, uploadDate: $uploadDate, url: $url, meta: $meta)';
+    return 'Chapter(id: $id, bookmarked: $bookmarked, chapterCount: $chapterCount, chapterNumber: $chapterNumber, downloaded: $downloaded, fetchedAt: $fetchedAt, index: $index, markPrevRead: $markPrevRead, lastPageRead: $lastPageRead, lastReadAt: $lastReadAt, mangaId: $mangaId, name: $name, pageCount: $pageCount, read: $read, scanlator: $scanlator, uploadDate: $uploadDate, url: $url, meta: $meta)';
   }
 
   @override
@@ -357,6 +392,7 @@ class _$_Chapter implements _Chapter {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Chapter &&
+            const DeepCollectionEquality().equals(other.id, id) &&
             const DeepCollectionEquality()
                 .equals(other.bookmarked, bookmarked) &&
             const DeepCollectionEquality()
@@ -367,6 +403,8 @@ class _$_Chapter implements _Chapter {
                 .equals(other.downloaded, downloaded) &&
             const DeepCollectionEquality().equals(other.fetchedAt, fetchedAt) &&
             const DeepCollectionEquality().equals(other.index, index) &&
+            const DeepCollectionEquality()
+                .equals(other.markPrevRead, markPrevRead) &&
             const DeepCollectionEquality()
                 .equals(other.lastPageRead, lastPageRead) &&
             const DeepCollectionEquality()
@@ -386,12 +424,14 @@ class _$_Chapter implements _Chapter {
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      const DeepCollectionEquality().hash(id),
       const DeepCollectionEquality().hash(bookmarked),
       const DeepCollectionEquality().hash(chapterCount),
       const DeepCollectionEquality().hash(chapterNumber),
       const DeepCollectionEquality().hash(downloaded),
       const DeepCollectionEquality().hash(fetchedAt),
       const DeepCollectionEquality().hash(index),
+      const DeepCollectionEquality().hash(markPrevRead),
       const DeepCollectionEquality().hash(lastPageRead),
       const DeepCollectionEquality().hash(lastReadAt),
       const DeepCollectionEquality().hash(mangaId),
@@ -418,12 +458,14 @@ class _$_Chapter implements _Chapter {
 
 abstract class _Chapter implements Chapter {
   factory _Chapter(
-      {final bool? bookmarked,
+      {@Id(assignable: true) final int? id,
+      final bool? bookmarked,
       final int? chapterCount,
       final int? chapterNumber,
       final bool? downloaded,
       final int? fetchedAt,
       final int? index,
+      final bool? markPrevRead,
       final int? lastPageRead,
       final int? lastReadAt,
       final int? mangaId,
@@ -438,6 +480,9 @@ abstract class _Chapter implements Chapter {
   factory _Chapter.fromJson(Map<String, dynamic> json) = _$_Chapter.fromJson;
 
   @override
+  @Id(assignable: true)
+  int? get id;
+  @override
   bool? get bookmarked;
   @override
   int? get chapterCount;
@@ -449,6 +494,8 @@ abstract class _Chapter implements Chapter {
   int? get fetchedAt;
   @override
   int? get index;
+  @override
+  bool? get markPrevRead;
   @override
   int? get lastPageRead;
   @override

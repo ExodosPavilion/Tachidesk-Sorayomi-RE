@@ -1,6 +1,6 @@
 enum Flavor {
-  RELEASE,
-  PREVIEW,
+  stable,
+  preview,
 }
 
 class F {
@@ -10,13 +10,12 @@ class F {
 
   static String get title {
     switch (appFlavor) {
-      case Flavor.RELEASE:
+      case Flavor.stable:
         return 'Sorayomi';
-      case Flavor.PREVIEW:
+      case Flavor.preview:
         return 'Sorayomi Preview';
       default:
         return 'title';
     }
   }
-
 }
